@@ -8,13 +8,31 @@
 import SwiftUI
 
 struct SearchedPostsView: View {
+    @EnvironmentObject var searchVM: SearchViewModel
+    @Binding var currentView: Int
+    @Binding var searchTerm: String
+    @Binding var isInProfile: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List(searchVM.searchResults.sorted { $0.createdAt ?? Date() > $1.createdAt ?? Date() }) { post in
+                NavigateCardView(isInProfile: $isInProfile, post: post)
+            }
+            .scrollIndicators(.hidden)
+            .listStyle(.plain)
+        }
+        .onAppear {
+            searchPosts()
+        }
+        .onChange(of: searchTerm) { newSearchTerm in
+            searchPosts()
+        }
     }
-}
-
-struct SearchedPostsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchedPostsView()
+    
+    private func searchPosts() {
+        // Call the searchPosts function in the SearchViewModel
+        searchVM.searchPosts(searchTerm: searchTerm) { result in
+            // Handle search result if needed
+        }
     }
 }

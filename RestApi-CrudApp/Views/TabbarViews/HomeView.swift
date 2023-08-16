@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var currentView: Int
+    @State var isSearch: Bool = false
+    @State var searchTerm: String = ""
+    @Binding var isInProfile: Bool
+    
+    @EnvironmentObject var postVM: PostViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+        VStack {
+            if searchTerm .isEmpty {
+                PostsListView(isInProfile: $isInProfile)
+            } else {
+                SearchedPostsView(currentView: $currentView, searchTerm: $searchTerm, isInProfile: $isInProfile)
+            }
+            
+        }
+        .onAppear {
+            isInProfile = false
+        }
+        .navigationTitle("Home")
+        .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always) )
     }
 }

@@ -9,9 +9,21 @@ import SwiftUI
 
 @main
 struct RestApi_CrudAppApp: App {
+    
+    @StateObject var userVM = UserViewModel()
+    @StateObject var postVM = PostViewModel()
+    @StateObject var authVM = LoginViewModel()
+    @StateObject var registerVM = RegisterViewModel()
+    @StateObject private var searchVM = SearchViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userVM)
+                .environmentObject(postVM)
+                .environmentObject(authVM)
+                .environmentObject(registerVM)
+                .environmentObject(searchVM)
         }
     }
 }

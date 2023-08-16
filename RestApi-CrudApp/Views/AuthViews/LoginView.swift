@@ -8,13 +8,43 @@
 import SwiftUI
 
 struct LoginView: View {
+    private let networkManager = NetworkManager.shared
+    
+    @EnvironmentObject var authVM: LoginViewModel
+    
+    @State private var username: String = ""
+    @State private var password: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TextField("Username", text: $username)
+                .textFieldStyle(.roundedBorder)
+            SecureField("Password", text: $password)
+                .textFieldStyle(.roundedBorder)
+            
+            Button {
+                authVM.login(username: username, password: password) { result in
+                    switch result {
+                    case .success(let response):
+                        // Handle successful login
+                        print("Login success: \(response)")
+                        DispatchQueue.main.async {
+                            authVM.isLoggedIn = true
+                        }
+                    case .failure(let error):
+                        // Handle login failure
+                        print("Login error: \(error)")
+                        // You might want to show an error message to the user here
+                    }
+                }
+
+            } label: {
+                Text("LOGIN")
+
+            }
+            .padding(.top, 6)
+            .buttonStyle(.bordered)
+        }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
