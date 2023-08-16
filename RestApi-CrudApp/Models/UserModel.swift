@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+class User: Codable, Identifiable {
+    var id: Int?
+    var username: String
+    var password: String?
+    
+    init(id: Int? = nil, username: String, password: String? = nil) {
+        self.id = id
+        self.username = username
+        self.password = password
+    }
+    
+}
