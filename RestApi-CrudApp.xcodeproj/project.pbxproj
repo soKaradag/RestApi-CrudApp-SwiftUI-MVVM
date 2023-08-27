@@ -33,6 +33,7 @@
 		7510BF6E2A8D78F200419FAB /* NavigateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF6D2A8D78F200419FAB /* NavigateCardView.swift */; };
 		7510BF702A8D78FF00419FAB /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF6F2A8D78FF00419FAB /* PostsListView.swift */; };
 		7510BF722A8D791800419FAB /* SearchedPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF712A8D791800419FAB /* SearchedPostsView.swift */; };
+		755FF75B2A9B7AE500DEBDEB /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FF75A2A9B7AE500DEBDEB /* LikeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		7510BF6D2A8D78F200419FAB /* NavigateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateCardView.swift; sourceTree = "<group>"; };
 		7510BF6F2A8D78FF00419FAB /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 		7510BF712A8D791800419FAB /* SearchedPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostsView.swift; sourceTree = "<group>"; };
+		755FF75A2A9B7AE500DEBDEB /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				7510BF422A8D77AC00419FAB /* UserModel.swift */,
 				7510BF442A8D77B200419FAB /* PostModel.swift */,
 				7510BF462A8D77BB00419FAB /* Response.swift */,
+				755FF75A2A9B7AE500DEBDEB /* LikeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			files = (
 				7510BF492A8D77DC00419FAB /* SearchViewModel.swift in Sources */,
 				7510BF4D2A8D77F000419FAB /* UserViewModel.swift in Sources */,
+				755FF75B2A9B7AE500DEBDEB /* LikeModel.swift in Sources */,
 				7510BF4B2A8D77E800419FAB /* PostViewModel.swift in Sources */,
 				7510BF602A8D789200419FAB /* TabbarView.swift in Sources */,
 				7510BF5B2A8D786C00419FAB /* NavigateProfileView.swift in Sources */,
