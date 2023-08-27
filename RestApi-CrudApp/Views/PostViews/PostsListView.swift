@@ -10,10 +10,9 @@ import SwiftUI
 struct PostsListView: View {
     @EnvironmentObject var postVM: PostViewModel
 
-    
     @State private var selectedFilter: Int = 0
-    @Binding var isInProfile: Bool
-    
+    @State private var isRefresh: Bool = false
+
     var sortedPosts: [Post] {
         switch selectedFilter {
         case 0:
@@ -25,25 +24,44 @@ struct PostsListView: View {
         }
     }
     
+    
     var body: some View {
-        VStack {
-            Picker("Sort Order", selection: $selectedFilter) {
-                 Text("Latest First").tag(0)
-                 Text("Oldest First").tag(1)
-             }
-             .pickerStyle(SegmentedPickerStyle())
-             .padding(.horizontal)
+        VStack(alignment: .leading) {
+            Text("Test sentence about app.")
+                .font(.system(size: 14, weight: .light))
+                .padding(.horizontal)
             
             List(sortedPosts) { post in
-                NavigateCardView(isInProfile: $isInProfile, post: post)
+                // Kullan post değişkenini burada
+                let likeVM = LikeViewModel()
+                CardView(likeVM: likeVM, post: post)
+                    .id(UUID())
             }
             .scrollIndicators(.hidden)
             .listStyle(.plain)
             .onAppear {
-                postVM.fetchPosts()
+                Task {
+                    await postVM.fetchPosts()
+                }
             }
             .refreshable {
-                postVM.fetchPosts()
+                Task {
+                    await postVM.fetchPosts()
+                }
+            }
+        }
+        .toolbar {
+            Menu("Filter") {
+                Button {
+                    selectedFilter = 0
+                } label: {
+                    Text("Latest First")
+                }
+                Button {
+                    selectedFilter = 1
+                } label: {
+                    Text("Oldest First")
+                }
             }
         }
     }

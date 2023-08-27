@@ -9,14 +9,15 @@ import SwiftUI
 
 struct SearchedPostsView: View {
     @EnvironmentObject var searchVM: SearchViewModel
+    @EnvironmentObject var likeVM: LikeViewModel
+    
     @Binding var currentView: Int
     @Binding var searchTerm: String
-    @Binding var isInProfile: Bool
     
     var body: some View {
         VStack {
             List(searchVM.searchResults.sorted { $0.createdAt ?? Date() > $1.createdAt ?? Date() }) { post in
-                NavigateCardView(isInProfile: $isInProfile, post: post)
+                CardView(post: post)
             }
             .scrollIndicators(.hidden)
             .listStyle(.plain)
