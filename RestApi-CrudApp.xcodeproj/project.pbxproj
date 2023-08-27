@@ -29,7 +29,7 @@
 		7510BF662A8D78B800419FAB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF652A8D78B800419FAB /* LoginView.swift */; };
 		7510BF682A8D78C000419FAB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF672A8D78C000419FAB /* RegisterView.swift */; };
 		7510BF6A2A8D78CD00419FAB /* LoginRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF692A8D78CD00419FAB /* LoginRegisterView.swift */; };
-		7510BF6C2A8D78E800419FAB /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF6B2A8D78E800419FAB /* PostCardView.swift */; };
+		7510BF6C2A8D78E800419FAB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF6B2A8D78E800419FAB /* CardView.swift */; };
 		7510BF6E2A8D78F200419FAB /* NavigateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF6D2A8D78F200419FAB /* NavigateCardView.swift */; };
 		7510BF702A8D78FF00419FAB /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF6F2A8D78FF00419FAB /* PostsListView.swift */; };
 		7510BF722A8D791800419FAB /* SearchedPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF712A8D791800419FAB /* SearchedPostsView.swift */; };
@@ -62,7 +62,7 @@
 		7510BF652A8D78B800419FAB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7510BF672A8D78C000419FAB /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7510BF692A8D78CD00419FAB /* LoginRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterView.swift; sourceTree = "<group>"; };
-		7510BF6B2A8D78E800419FAB /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
+		7510BF6B2A8D78E800419FAB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7510BF6D2A8D78F200419FAB /* NavigateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateCardView.swift; sourceTree = "<group>"; };
 		7510BF6F2A8D78FF00419FAB /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 		7510BF712A8D791800419FAB /* SearchedPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostsView.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		7510BF572A8D783600419FAB /* PostViews */ = {
 			isa = PBXGroup;
 			children = (
-				7510BF6B2A8D78E800419FAB /* PostCardView.swift */,
+				7510BF6B2A8D78E800419FAB /* CardView.swift */,
 				7510BF6D2A8D78F200419FAB /* NavigateCardView.swift */,
 				7510BF6F2A8D78FF00419FAB /* PostsListView.swift */,
 				7510BF712A8D791800419FAB /* SearchedPostsView.swift */,
@@ -296,7 +296,7 @@
 				7510BF432A8D77AC00419FAB /* UserModel.swift in Sources */,
 				7510BF2F2A8D76FE00419FAB /* RestApi_CrudAppApp.swift in Sources */,
 				7510BF502A8D780100419FAB /* RegisterViewModel.swift in Sources */,
-				7510BF6C2A8D78E800419FAB /* PostCardView.swift in Sources */,
+				7510BF6C2A8D78E800419FAB /* CardView.swift in Sources */,
 				7510BF562A8D783200419FAB /* SettingsView.swift in Sources */,
 				7510BF662A8D78B800419FAB /* LoginView.swift in Sources */,
 				7510BF522A8D780A00419FAB /* LoginViewModel.swift in Sources */,
