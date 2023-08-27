@@ -181,10 +181,10 @@
 		7510BF582A8D783C00419FAB /* TabbarViews */ = {
 			isa = PBXGroup;
 			children = (
+				7510BF5C2A8D787500419FAB /* ProfileViews */,
 				7510BF5F2A8D789200419FAB /* TabbarView.swift */,
 				7510BF612A8D789B00419FAB /* HomeView.swift */,
 				7510BF632A8D78A200419FAB /* AddPostView.swift */,
-				7510BF5C2A8D787500419FAB /* ProfileViews */,
 			);
 			path = TabbarViews;
 			sourceTree = "<group>";

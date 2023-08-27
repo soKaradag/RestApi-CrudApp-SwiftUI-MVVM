@@ -56,7 +56,9 @@ struct TabbarView: View {
         }
         .font(.system(size: 25))
         .sheet(isPresented: $goToAddView, onDismiss: {
-            postVM.fetchPosts()
+            Task {
+                await postVM.fetchPosts()
+            }
         }) {
             AddPostView(goToAddView: $goToAddView)
         }//Sheet end
