@@ -11,6 +11,7 @@ struct ProfileView: View {
     private let networkManager = NetworkManager.shared
     
     @EnvironmentObject var postVM: PostViewModel
+    @EnvironmentObject var likeVM: LikeViewModel
     
     @State var isPresentAuth: Bool = false
     
@@ -25,7 +26,7 @@ struct ProfileView: View {
         case 1:
             return postVM.userPosts.sorted { $0.createdAt ?? Date() < $1.createdAt ?? Date() }
         default:
-            return postVM.posts
+            return postVM.userPosts
         }
     }
     
@@ -45,12 +46,14 @@ struct ProfileView: View {
              .padding(.horizontal)
             
             List(sortedPosts) { post in
-                PostCardView(post: post)
+                CardView(post: post)
             }
             .scrollIndicators(.hidden)
             .listStyle(.plain)
             .onAppear {
-                postVM.fetchUserPost(profileId: id)
+                Task {
+                    postVM.fetchUserPost(profileId: networkManager.currentId)
+                }
             }
         }
         .navigationTitle(networkManager.currentUsername)
@@ -68,7 +71,9 @@ struct ProfileView: View {
             }
         }
         .refreshable {
-            postVM.fetchUserPost(profileId: id)
+            Task {
+                postVM.fetchUserPost(profileId: networkManager.currentId)
+            }
         }
     }
 }
