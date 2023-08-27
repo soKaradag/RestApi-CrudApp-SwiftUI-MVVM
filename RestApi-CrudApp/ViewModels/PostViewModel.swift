@@ -8,64 +8,79 @@
 import Foundation
 
 class PostViewModel: ObservableObject {
+    
     @Published var posts: [Post] = []
     @Published var userPosts: [Post] = []
-
     
     private let networkManager = NetworkManager.shared
-
     
-    func fetchPosts() {
+    func fetchPosts() async {
+        // Postları alma isteği için gerekli URL'yi oluşturun
         guard let url = URL(string: "\(networkManager.baseURL)/posts") else {
             print("Error: Invalid URL")
             return
         }
         
-        let headers = [
-            "api-key": networkManager.apiKey,
-            "Authorization": "Bearer \(networkManager.jwtToken)",
-            "Content-Type": "application/json"
-        ]
-
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-
-        networkManager.performRequest(url: url, httpMethod: "GET", headers: headers, body: nil) { (result: Result<[Post], Error>) in
-            switch result {
-            case .success(let fetchedPosts):
-                DispatchQueue.main.async {
-                    self.posts = fetchedPosts
-                }
-                
-            case .failure(let error):
-                print("Error fetching posts: \(error)")
-            }
-        }
-    }
-    
-    func fetchUserPost(profileId: Int) {
-        guard let url = URL(string: "\(networkManager.baseURL)/posts/\(profileId)/posts") else {
-            print("Error: Invalid URL")
-            return
-        }
-    
+        // HTTP isteği için başlık ve diğer ayrıntıları ayarlayın
         let headers = [
             "api-key": networkManager.apiKey,
             "Authorization": "Bearer \(networkManager.jwtToken)",
             "Content-Type": "application/json"
         ]
         
+        // HTTP GET isteği gönderme
         networkManager.performRequest(url: url, httpMethod: "GET", headers: headers, body: nil) { (result: Result<[Post], Error>) in
             switch result {
-            case .success(let fetchedPosts):
+            case .success(let receivedPosts):
+                // Başarılı yanıt aldık, postları güncelle
+                
                 DispatchQueue.main.async {
-                    self.userPosts = fetchedPosts
+                    self.posts = receivedPosts
+                    print(receivedPosts[0].likes?.count ?? 0)
                 }
-            case.failure(let error):
-                print("Cant fetched user post \(error)")
-                return
+                
+                
+            case .failure(let error):
+                // Hata durumunda işlem yapma
+                print("Post alma hatası: \(error)")
             }
         }
+    }
+    
+    
+    func fetchUserPost(profileId: Int) {
+        // Postları alma isteği için gerekli URL'yi oluşturun
+        guard let url = URL(string: "\(networkManager.baseURL)/posts/\(profileId)/posts") else {
+            print("Error: Invalid URL")
+            return
+        }
+
+        
+        // HTTP isteği için başlık ve diğer ayrıntıları ayarlayın
+        let headers = [
+            "api-key": networkManager.apiKey,
+            "Authorization": "Bearer \(networkManager.jwtToken)",
+            "Content-Type": "application/json"
+        ]
+        
+        // HTTP GET isteği gönderme
+        networkManager.performRequest(url: url, httpMethod: "GET", headers: headers, body: nil) { (result: Result<[Post], Error>) in
+            switch result {
+            case .success(let receivedPosts):
+                // Başarılı yanıt aldık, postları güncelle
+                
+                DispatchQueue.main.async {
+                    self.userPosts = receivedPosts
+                    print(receivedPosts[0].likes?.count ?? 0)
+                }
+                
+                
+            case .failure(let error):
+                // Hata durumunda işlem yapma
+                print("Post alma hatası: \(error)")
+            }
+        }
+
     }
     
     func deletePost(postId: Int) {
@@ -73,7 +88,7 @@ class PostViewModel: ObservableObject {
             print("Error: Invalid URL")
             return
         }
-    
+        
         let headers = [
             "api-key": networkManager.apiKey,
             "Authorization": "Bearer \(networkManager.jwtToken)",
