@@ -34,6 +34,7 @@
 		7510BF702A8D78FF00419FAB /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF6F2A8D78FF00419FAB /* PostsListView.swift */; };
 		7510BF722A8D791800419FAB /* SearchedPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510BF712A8D791800419FAB /* SearchedPostsView.swift */; };
 		755FF75B2A9B7AE500DEBDEB /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FF75A2A9B7AE500DEBDEB /* LikeModel.swift */; };
+		755FF75D2A9B7B5A00DEBDEB /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		7510BF6F2A8D78FF00419FAB /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 		7510BF712A8D791800419FAB /* SearchedPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostsView.swift; sourceTree = "<group>"; };
 		755FF75A2A9B7AE500DEBDEB /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
+		755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				7510BF482A8D77DC00419FAB /* SearchViewModel.swift */,
 				7510BF4C2A8D77F000419FAB /* UserViewModel.swift */,
 				7510BF4E2A8D77F200419FAB /* AuthViewModels */,
+				755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				7510BF702A8D78FF00419FAB /* PostsListView.swift in Sources */,
 				7510BF642A8D78A200419FAB /* AddPostView.swift in Sources */,
 				7510BF5E2A8D788700419FAB /* ProfileView.swift in Sources */,
+				755FF75D2A9B7B5A00DEBDEB /* LikeViewModel.swift in Sources */,
 				7510BF472A8D77BB00419FAB /* Response.swift in Sources */,
 				7510BF722A8D791800419FAB /* SearchedPostsView.swift in Sources */,
 				7510BF6A2A8D78CD00419FAB /* LoginRegisterView.swift in Sources */,
