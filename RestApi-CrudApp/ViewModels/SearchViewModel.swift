@@ -12,13 +12,17 @@ class SearchViewModel: ObservableObject {
     
     @Published var searchResults: [Post] = []
     
-    func searchPosts(searchTerm: String, completion: @escaping (Result<[Post], Error>) -> Void) {
+
+    
+    func searchPosts(searchTerm: String) {
+        // Postları alma isteği için gerekli URL'yi oluşturun
         guard let url = URL(string: "\(networkManager.baseURL)/posts/search") else {
             print("Error: Invalid URL")
             return
         }
 
         
+        // HTTP isteği için başlık ve diğer ayrıntıları ayarlayın
         let headers = [
             "api-key": networkManager.apiKey,
             "Authorization": "Bearer \(networkManager.jwtToken)",
@@ -30,21 +34,27 @@ class SearchViewModel: ObservableObject {
         ]
         
         do {
+            // HTTP GET isteği gönderme
             let httpBody = try JSONSerialization.data(withJSONObject: body)
             
             networkManager.performRequest(url: url, httpMethod: "POST", headers: headers, body: httpBody) { (result: Result<[Post], Error>) in
                 switch result {
-                case .success(let posts):
+                case .success(let receivedPosts):
+                    // Başarılı yanıt aldık, postları güncelle
+                    
                     DispatchQueue.main.async {
-                        self.searchResults = posts
+                        self.searchResults = receivedPosts
                     }
+                    
                 case .failure(let error):
-                    print("Search failed: \(error)")
+                    // Hata durumunda işlem yapma
+                    print("Post alma hatası: \(error)")
                 }
-                completion(result)
             }
         } catch {
             print("Error creating HTTP body: \(error.localizedDescription)")
         }
+
     }
 }
+
