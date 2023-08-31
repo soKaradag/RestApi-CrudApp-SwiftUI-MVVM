@@ -17,12 +17,10 @@ struct PostDetailsView: View {
     @State private var content: String = ""
     @State private var addComment: Bool = false
     
-    @State private var isShowsLikes: Bool = false
-    @State private var likeButtonTapped: Bool = false
     @Binding var likeCount: Int
+    @Binding var commentFilter: Int
     
     @State private var isLoading: Bool = false
-    @State private var isComments: Bool = false
     
     var post: Post
     
@@ -103,20 +101,35 @@ struct PostDetailsView: View {
                     .font(.system(size: 20, weight: .bold))
                     .padding(.top, 6)
                 Spacer()
+                Menu {
+                    Button {
+                        commentFilter = 0
+                    } label: {
+                        Text("Latest First")
+                    }
+                    Button {
+                        commentFilter = 1
+                    } label: {
+                        Text("Oldest First")
+                    }
+                } label: {
+                    Image(systemName: "slider.horizontal.3")
+                }
             }
             Divider()
-            CommentListView(post: post)
+            CommentListView(commentFilter: $commentFilter, post: post)
                 .listStyle(.plain)
         }
+        .padding()
         .navigationTitle("\(post.comments.count) comments")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             postVM.fetchPosts()
         }
-        .padding()
-        .sheet(isPresented: $addComment) {
-            AddCommentView(post: post)
-            
+        .sheet(isPresented: $addComment, onDismiss: {
+            postVM.fetchPosts()
+        }) {
+            AddCommentView(addComment: $addComment, post: post)
         }
     }
 }

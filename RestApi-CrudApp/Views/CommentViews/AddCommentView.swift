@@ -9,7 +9,10 @@ import SwiftUI
 
 struct AddCommentView: View {
     @EnvironmentObject var commentVM: CommentViewModel
+    @EnvironmentObject var postVM: PostViewModel
     @State private var content: String = ""
+    
+    @Binding var addComment: Bool
     
     var post: Post
     
@@ -23,14 +26,14 @@ struct AddCommentView: View {
                 .lineLimit(5, reservesSpace: true)
             
             Button {
-                
-                    commentVM.addComment(postid: post.id, content: content)
-                
+                commentVM.addComment(postid: post.id, content: content)
+                content = ""
+                addComment = false
             } label: {
                 Text("Add Comment")
             }
             .buttonStyle(.bordered)
-
+            
         }
         .padding()
     }

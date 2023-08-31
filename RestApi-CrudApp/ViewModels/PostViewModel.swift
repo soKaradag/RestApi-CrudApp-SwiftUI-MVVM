@@ -36,7 +36,7 @@ class PostViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.posts = receivedPosts
-                    print(receivedPosts[0].likes?.count ?? 0)
+                    print(receivedPosts[0].comments.count)
                 }
                 
                 

@@ -19,6 +19,7 @@ struct CardView: View {
     
     @State private var isLoading: Bool = false
     @State private var isComments: Bool = false
+    @State var commentFilter: Int = 0
     
     var post: Post
     
@@ -99,7 +100,7 @@ struct CardView: View {
                 }
                 
                 NavigationLink {
-                    PostDetailsView(likeVM: likeVM, likeCount: $likeCount ,post: post)
+                    PostDetailsView(likeVM: likeVM, likeCount: $likeCount ,commentFilter: $commentFilter, post: post)
                 } label: {
                     VStack(alignment: .center) {
                         Image(systemName: "bubble.right")

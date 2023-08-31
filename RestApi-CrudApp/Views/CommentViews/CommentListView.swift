@@ -10,11 +10,24 @@ import SwiftUI
 struct CommentListView: View {
     @EnvironmentObject var postVM: PostViewModel
     
+    @Binding var commentFilter: Int
+    
     var post: Post
+    
+    var sortedComments: [Comment] {
+        switch commentFilter {
+        case 0:
+            return post.comments.sorted { $0.createdAt ?? Date() > $1.createdAt ?? Date() }
+        case 1:
+            return post.comments.sorted { $0.createdAt ?? Date() < $1.createdAt ?? Date() }
+        default:
+            return post.comments
+        }
+    }
     
     var body: some View {
         VStack {
-            ForEach(post.comments) {comment in
+            ForEach(sortedComments) {comment in
                 CommentCardView(comment: comment)
             }
         }
