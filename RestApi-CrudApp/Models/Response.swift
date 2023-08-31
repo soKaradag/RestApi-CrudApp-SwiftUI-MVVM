@@ -23,6 +23,22 @@ struct DeleteResponse: Codable {
     let message: String
 }
 
+struct AddLikeResponse: Codable {
+    let message: String
+}
+
+struct DeleteLikeResponse: Codable {
+    let message: String
+}
+
 struct AddPostResponse: Codable {
+    let message: String
+}
+
+struct AddCommentResponse: Codable {
+    let message: String
+}
+
+struct DeleteCommentResponse: Codable {
     let message: String
 }

@@ -13,7 +13,6 @@ struct ContentView: View {
     @EnvironmentObject var authVM: LoginViewModel
     
     @State var currentView: Int = 1
-    @State var isInProfile: Bool = false
     
     @AppStorage("COLOR_THEME") var colorTheme: Bool = false
     
@@ -22,11 +21,11 @@ struct ContentView: View {
             NavigationStack {
                 VStack {
                     if currentView == 1 {
-                        HomeView(currentView: $currentView, isInProfile: $isInProfile)
+                        HomeView(currentView: $currentView)
                     } else if currentView == 2 {
                         ProfileView(currentView: $currentView, id: networkManager.currentId)
                     } else {
-                        HomeView(currentView: $currentView, isInProfile: $isInProfile)
+                        HomeView(currentView: $currentView)
                     }
                     
                  Spacer()

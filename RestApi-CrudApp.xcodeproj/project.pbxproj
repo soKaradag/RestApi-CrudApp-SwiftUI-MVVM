@@ -34,6 +34,7 @@
 		755FF75B2A9B7AE500DEBDEB /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FF75A2A9B7AE500DEBDEB /* LikeModel.swift */; };
 		755FF75D2A9B7B5A00DEBDEB /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */; };
 		75BB32152AA09A420036B1B9 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB32142AA09A420036B1B9 /* CommentModel.swift */; };
+		75BB32172AA09AC00036B1B9 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB32162AA09AC00036B1B9 /* CommentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		755FF75A2A9B7AE500DEBDEB /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
 		755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		75BB32142AA09A420036B1B9 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		75BB32162AA09AC00036B1B9 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				7510BF4C2A8D77F000419FAB /* UserViewModel.swift */,
 				7510BF4E2A8D77F200419FAB /* AuthViewModels */,
 				755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */,
+				75BB32162AA09AC00036B1B9 /* CommentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				7510BF562A8D783200419FAB /* SettingsView.swift in Sources */,
 				7510BF662A8D78B800419FAB /* LoginView.swift in Sources */,
 				7510BF522A8D780A00419FAB /* LoginViewModel.swift in Sources */,
+				75BB32172AA09AC00036B1B9 /* CommentViewModel.swift in Sources */,
 				7510BF622A8D789B00419FAB /* HomeView.swift in Sources */,
 				7510BF702A8D78FF00419FAB /* PostsListView.swift in Sources */,
 				7510BF642A8D78A200419FAB /* AddPostView.swift in Sources */,

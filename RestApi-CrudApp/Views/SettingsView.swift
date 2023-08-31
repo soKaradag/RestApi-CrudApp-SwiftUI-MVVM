@@ -41,6 +41,7 @@ struct SettingsView: View {
                                  print("Logout failed: \(error)")
                              }
                          }
+                        authVM.handleSuccessfulLogout()
                         
                     } label: {
                         Text("Logout")
