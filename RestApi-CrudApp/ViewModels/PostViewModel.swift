@@ -14,7 +14,7 @@ class PostViewModel: ObservableObject {
     
     private let networkManager = NetworkManager.shared
     
-    func fetchPosts() async {
+    func fetchPosts()  {
         // Postları alma isteği için gerekli URL'yi oluşturun
         guard let url = URL(string: "\(networkManager.baseURL)/posts") else {
             print("Error: Invalid URL")
@@ -70,10 +70,12 @@ class PostViewModel: ObservableObject {
                 // Başarılı yanıt aldık, postları güncelle
                 
                 DispatchQueue.main.async {
-                    self.userPosts = receivedPosts
-                    print(receivedPosts[0].likes?.count ?? 0)
+                    if receivedPosts.isEmpty {
+                        self.userPosts = []
+                    } else {
+                        self.userPosts = receivedPosts
+                    }
                 }
-                
                 
             case .failure(let error):
                 // Hata durumunda işlem yapma

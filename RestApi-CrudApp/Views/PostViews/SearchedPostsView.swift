@@ -12,28 +12,30 @@ struct SearchedPostsView: View {
     @EnvironmentObject var likeVM: LikeViewModel
     
     @Binding var currentView: Int
-    @Binding var searchTerm: String
+    @State var searchTerm: String = ""
     
     var body: some View {
         VStack {
-            List(searchVM.searchResults.sorted { $0.createdAt ?? Date() > $1.createdAt ?? Date() }) { post in
-                CardView(post: post)
+            if searchTerm.isEmpty {
+                Text("No Post.")
+                    .font(.system(size: 22))
+                    .foregroundColor(.secondary)
+            } else {
+                List(searchVM.searchResults.sorted { $0.createdAt ?? Date() > $1.createdAt ?? Date() }) { post in
+                    CardView(post: post)
+                }
+                .scrollIndicators(.hidden)
+                .listStyle(.plain)
             }
-            .scrollIndicators(.hidden)
-            .listStyle(.plain)
         }
         .onAppear {
-            searchPosts()
+            searchVM.searchPosts(searchTerm: searchTerm)
         }
         .onChange(of: searchTerm) { newSearchTerm in
-            searchPosts()
+            searchVM.searchPosts(searchTerm: searchTerm)
         }
+        .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always) )
+        .navigationTitle("Search")
     }
-    
-    private func searchPosts() {
-        // Call the searchPosts function in the SearchViewModel
-        searchVM.searchPosts(searchTerm: searchTerm) { result in
-            // Handle search result if needed
-        }
-    }
+
 }

@@ -35,6 +35,10 @@
 		755FF75D2A9B7B5A00DEBDEB /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */; };
 		75BB32152AA09A420036B1B9 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB32142AA09A420036B1B9 /* CommentModel.swift */; };
 		75BB32172AA09AC00036B1B9 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB32162AA09AC00036B1B9 /* CommentViewModel.swift */; };
+		75BB321A2AA09B570036B1B9 /* CommentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB32192AA09B570036B1B9 /* CommentCardView.swift */; };
+		75BB321C2AA09B7E0036B1B9 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB321B2AA09B7E0036B1B9 /* PostDetailsView.swift */; };
+		75BB321E2AA09B9B0036B1B9 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB321D2AA09B9B0036B1B9 /* CommentListView.swift */; };
+		75BB32202AA09BAA0036B1B9 /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB321F2AA09BAA0036B1B9 /* AddCommentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		75BB32142AA09A420036B1B9 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		75BB32162AA09AC00036B1B9 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		75BB32192AA09B570036B1B9 /* CommentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardView.swift; sourceTree = "<group>"; };
+		75BB321B2AA09B7E0036B1B9 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
+		75BB321D2AA09B9B0036B1B9 /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
+		75BB321F2AA09BAA0036B1B9 /* AddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +146,7 @@
 				7510BF302A8D76FE00419FAB /* ContentView.swift */,
 				7510BF552A8D783200419FAB /* SettingsView.swift */,
 				7510BF572A8D783600419FAB /* PostViews */,
+				75BB32182AA09B420036B1B9 /* CommentViews */,
 				7510BF582A8D783C00419FAB /* TabbarViews */,
 				7510BF592A8D784800419FAB /* AuthViews */,
 			);
@@ -150,9 +159,9 @@
 				7510BF4A2A8D77E800419FAB /* PostViewModel.swift */,
 				7510BF482A8D77DC00419FAB /* SearchViewModel.swift */,
 				7510BF4C2A8D77F000419FAB /* UserViewModel.swift */,
-				7510BF4E2A8D77F200419FAB /* AuthViewModels */,
-				755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */,
 				75BB32162AA09AC00036B1B9 /* CommentViewModel.swift */,
+				755FF75C2A9B7B5A00DEBDEB /* LikeViewModel.swift */,
+				7510BF4E2A8D77F200419FAB /* AuthViewModels */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,6 +189,7 @@
 				7510BF6B2A8D78E800419FAB /* CardView.swift */,
 				7510BF6F2A8D78FF00419FAB /* PostsListView.swift */,
 				7510BF712A8D791800419FAB /* SearchedPostsView.swift */,
+				75BB321B2AA09B7E0036B1B9 /* PostDetailsView.swift */,
 			);
 			path = PostViews;
 			sourceTree = "<group>";
@@ -211,6 +221,16 @@
 				7510BF5D2A8D788700419FAB /* ProfileView.swift */,
 			);
 			path = ProfileViews;
+			sourceTree = "<group>";
+		};
+		75BB32182AA09B420036B1B9 /* CommentViews */ = {
+			isa = PBXGroup;
+			children = (
+				75BB32192AA09B570036B1B9 /* CommentCardView.swift */,
+				75BB321D2AA09B9B0036B1B9 /* CommentListView.swift */,
+				75BB321F2AA09BAA0036B1B9 /* AddCommentView.swift */,
+			);
+			path = CommentViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,15 +313,19 @@
 				7510BF452A8D77B200419FAB /* PostModel.swift in Sources */,
 				7510BF682A8D78C000419FAB /* RegisterView.swift in Sources */,
 				7510BF432A8D77AC00419FAB /* UserModel.swift in Sources */,
+				75BB321A2AA09B570036B1B9 /* CommentCardView.swift in Sources */,
+				75BB321E2AA09B9B0036B1B9 /* CommentListView.swift in Sources */,
 				7510BF2F2A8D76FE00419FAB /* RestApi_CrudAppApp.swift in Sources */,
 				7510BF502A8D780100419FAB /* RegisterViewModel.swift in Sources */,
 				7510BF6C2A8D78E800419FAB /* CardView.swift in Sources */,
 				7510BF562A8D783200419FAB /* SettingsView.swift in Sources */,
+				75BB321C2AA09B7E0036B1B9 /* PostDetailsView.swift in Sources */,
 				7510BF662A8D78B800419FAB /* LoginView.swift in Sources */,
 				7510BF522A8D780A00419FAB /* LoginViewModel.swift in Sources */,
 				75BB32172AA09AC00036B1B9 /* CommentViewModel.swift in Sources */,
 				7510BF622A8D789B00419FAB /* HomeView.swift in Sources */,
 				7510BF702A8D78FF00419FAB /* PostsListView.swift in Sources */,
+				75BB32202AA09BAA0036B1B9 /* AddCommentView.swift in Sources */,
 				7510BF642A8D78A200419FAB /* AddPostView.swift in Sources */,
 				7510BF5E2A8D788700419FAB /* ProfileView.swift in Sources */,
 				755FF75D2A9B7B5A00DEBDEB /* LikeViewModel.swift in Sources */,

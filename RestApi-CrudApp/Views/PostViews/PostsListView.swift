@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PostsListView: View {
     @EnvironmentObject var postVM: PostViewModel
-
+    
     @State private var selectedFilter: Int = 0
     @State private var isRefresh: Bool = false
-
+    
     var sortedPosts: [Post] {
         switch selectedFilter {
         case 0:
@@ -27,9 +27,6 @@ struct PostsListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Test sentence about app.")
-                .font(.system(size: 14, weight: .light))
-                .padding(.horizontal)
             
             List(sortedPosts) { post in
                 // Kullan post değişkenini burada
@@ -40,18 +37,14 @@ struct PostsListView: View {
             .scrollIndicators(.hidden)
             .listStyle(.plain)
             .onAppear {
-                Task {
-                    await postVM.fetchPosts()
-                }
+                postVM.fetchPosts()
             }
             .refreshable {
-                Task {
-                    await postVM.fetchPosts()
-                }
+                postVM.fetchPosts()
             }
         }
         .toolbar {
-            Menu("Filter") {
+            Menu {
                 Button {
                     selectedFilter = 0
                 } label: {
@@ -62,6 +55,8 @@ struct PostsListView: View {
                 } label: {
                     Text("Oldest First")
                 }
+            } label: {
+                Image(systemName: "slider.horizontal.3")
             }
         }
     }
