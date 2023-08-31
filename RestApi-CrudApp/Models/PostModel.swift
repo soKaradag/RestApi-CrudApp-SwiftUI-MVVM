@@ -15,6 +15,7 @@ class Post: Codable, Identifiable {
     var content: String
     var createdAt: Date?
     var likes: [Like]?
+    var comments: [Comment]
 
     enum CodingKeys: String, CodingKey {
         case id = "post_id"
@@ -24,9 +25,10 @@ class Post: Codable, Identifiable {
         case content = "post_content"
         case createdAt = "post_createdAt"
         case likes
+        case comments
     }
 
-    init(id: Int, userid: Int, username: String, title: String, content: String, createdAt: Date? = nil, likes: [Like]? = nil) {
+    init(id: Int, userid: Int, username: String, title: String, content: String, createdAt: Date? = nil, likes: [Like]? = nil, comments: [Comment]) {
         self.id = id
         self.userid = userid
         self.username = username
@@ -34,5 +36,6 @@ class Post: Codable, Identifiable {
         self.content = content
         self.createdAt = createdAt
         self.likes = likes
+        self.comments = comments
     }
 }
