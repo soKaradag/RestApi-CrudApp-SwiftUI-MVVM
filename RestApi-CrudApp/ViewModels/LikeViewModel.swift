@@ -12,8 +12,6 @@ class LikeViewModel: ObservableObject {
     
     @Published var isLiked: Bool = false
     
-    let postVM = PostViewModel()
-    
     func checkIfLiked(post: Post) {
         // Postun likes özelliği boşsa veya kullanıcı kimliği nullsa, false olarak ayarla.
         guard let likes = post.likes else {
@@ -30,7 +28,7 @@ class LikeViewModel: ObservableObject {
     }
 
     
-    func addLike(postid: Int) async  {
+    func addLike(postid: Int)   {
         guard let url = URL(string: "\(networkManager.baseURL)/likes/addLike") else {
             print("Error: Invalid URL")
             return
@@ -71,7 +69,7 @@ class LikeViewModel: ObservableObject {
         }
     }
     
-    func deleteLike(postid: Int) async  {
+    func deleteLike(postid: Int)   {
         guard let url = URL(string: "\(networkManager.baseURL)/likes/deleteLike") else {
             print("Error: Invalid URL")
             return

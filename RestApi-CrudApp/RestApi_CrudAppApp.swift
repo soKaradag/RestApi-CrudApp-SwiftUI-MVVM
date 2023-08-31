@@ -8,13 +8,14 @@
 import SwiftUI
 
 @main
-struct RestApi_CrudAppApp: App {
-    
+struct BlogRestApiApp: App {
     @StateObject var userVM = UserViewModel()
     @StateObject var postVM = PostViewModel()
     @StateObject var authVM = LoginViewModel()
     @StateObject var registerVM = RegisterViewModel()
-    @StateObject private var searchVM = SearchViewModel()
+    @StateObject var searchVM = SearchViewModel()
+    @StateObject var likeVM = LikeViewModel()
+    @StateObject var commentVM = CommentViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -24,6 +25,8 @@ struct RestApi_CrudAppApp: App {
                 .environmentObject(authVM)
                 .environmentObject(registerVM)
                 .environmentObject(searchVM)
+                .environmentObject(likeVM)
+                .environmentObject(commentVM)
         }
     }
 }

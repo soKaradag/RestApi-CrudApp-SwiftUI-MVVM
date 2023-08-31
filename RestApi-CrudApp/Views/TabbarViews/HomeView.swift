@@ -10,20 +10,29 @@ import SwiftUI
 struct HomeView: View {
     @Binding var currentView: Int
     @State var isSearch: Bool = false
-    @State var searchTerm: String = ""
     
     @EnvironmentObject var postVM: PostViewModel
     
     var body: some View {
         VStack {
-            if searchTerm .isEmpty {
-                PostsListView()
-            } else {
-                SearchedPostsView(currentView: $currentView, searchTerm: $searchTerm)
+            NavigationLink {
+                SearchedPostsView(currentView: $currentView)
+            } label: {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                    Spacer()
+                }
+                .font(.system(size: 14, weight: .light))
+                .foregroundColor(.secondary)
+                
             }
+            .buttonStyle(.bordered)
+            .padding(.horizontal)
             
+            PostsListView()
+
         }
         .navigationTitle("Home")
-        .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always) )
     }
 }
