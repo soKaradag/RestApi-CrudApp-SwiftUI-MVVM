@@ -47,7 +47,7 @@ class CommentViewModel: ObservableObject {
         
     }
     
-    func deleteComment(postid: Int) async {
+    func deleteComment(commentId: Int) async {
         guard let url = URL(string: "\(networkManager.baseURL)/comments/deleteComment") else {
             print("Error: Invalid URL")
             return
@@ -62,7 +62,7 @@ class CommentViewModel: ObservableObject {
         let body: [String: AnyHashable] = [
             "userId": networkManager.currentId,
             "username": networkManager.currentUsername,
-            "postid": postid
+            "commentId": commentId
         ]
         
         do {
@@ -72,6 +72,7 @@ class CommentViewModel: ObservableObject {
                 switch result {
                 case.success(let response):
                     print("Comment delete successful, \(response)")
+                    print("\(commentId)")
                 case.failure(let error):
                     print("Comment delete failed, \(error)")
                 }

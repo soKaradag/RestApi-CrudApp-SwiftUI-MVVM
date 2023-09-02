@@ -13,7 +13,6 @@ struct PostDetailsView: View {
     @EnvironmentObject var postVM: PostViewModel
     @ObservedObject var likeVM: LikeViewModel
     
-    @EnvironmentObject var commentVM: CommentViewModel
     @State private var content: String = ""
     @State private var addComment: Bool = false
     

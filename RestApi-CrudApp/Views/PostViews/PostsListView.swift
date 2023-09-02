@@ -27,7 +27,6 @@ struct PostsListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            
             List(sortedPosts) { post in
                 // Kullan post değişkenini burada
                 let likeVM = LikeViewModel()
