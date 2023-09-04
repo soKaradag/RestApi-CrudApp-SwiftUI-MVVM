@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct CommentCardView: View {
+    private let networkManager = NetworkManager.shared
+    
     @EnvironmentObject var commentVM: CommentViewModel
     
-    var comment: Comment
+    @State var comment: Comment
+    @State var post: Post
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,18 +30,21 @@ struct CommentCardView: View {
                     Text("N/A")
                         .font(.system(size: 10, weight: .light))
                 }
-                Menu {
-                    Button {
-                        Task {
-                            await commentVM.deleteComment(commentId: comment.id ?? 0)
+                
+                if (comment.userid == networkManager.currentId) || (post.userid == networkManager.currentId) {
+                    Menu {
+                        Button(action: {
+                            Task {
+                                await commentVM.deleteComment(commentId: comment.id ?? 0)
+                            }
+                        }) {
+                            Text("Delete")
                         }
                     } label: {
-                        Text("Delete")
+                        Image(systemName: "ellipsis")
                     }
-
-                } label: {
-                    Image(systemName: "ellipsis")
                 }
+                
             }
             Text(comment.content ?? "unkown")
                 .font(.system(size: 13))

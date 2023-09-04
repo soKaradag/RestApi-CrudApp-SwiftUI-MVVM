@@ -119,6 +119,9 @@ struct PostDetailsView: View {
             CommentListView(commentFilter: $commentFilter, post: post)
                 .listStyle(.plain)
         }
+        .refreshable {
+            postVM.fetchPosts()
+        }
         .padding()
         .navigationTitle("\(post.comments.count) comments")
         .navigationBarTitleDisplayMode(.inline)

@@ -12,7 +12,7 @@ struct CommentListView: View {
     
     @Binding var commentFilter: Int
     
-    var post: Post
+    @State var post: Post
     
     var sortedComments: [Comment] {
         switch commentFilter {
@@ -28,7 +28,7 @@ struct CommentListView: View {
     var body: some View {
         VStack {
             ForEach(sortedComments) {comment in
-                CommentCardView(comment: comment)
+                CommentCardView(comment: comment, post: post)
             }
         }
     }
