@@ -22,7 +22,7 @@ Create post, add comment and like.
 
 I use swiftUI in this project and use bases of swiftui.
 
-### Design Patter
+### Design Pattern
 
 Created with MVVM design pattern and network manager without 3rd party libraries.
 
